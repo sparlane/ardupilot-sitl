@@ -7,7 +7,7 @@ RUN ["/ardupilot/modules/waf/waf-light", "configure", "--board", "sitl"]
 RUN ["/ardupilot/modules/waf/waf-light", "build", "--target", "bin/arducopter"]
 
 WORKDIR /ardupilot/ArduCopter
+COPY startup.sh .
 
-ENTRYPOINT ["/ardupilot/build/sitl/bin/arducopter", "-S", "-I0", "--model", "+", "--speedup", "1", "--defaults", "/ardupilot/Tools/autotest/default_params/copter.parm"]
-
+ENTRYPOINT ["/ardupilot/ArduCopter/startup.sh"]
 #ENTRYPOINT ["/ardupilot/Tools/autotest/sim_vehicle.py"]
