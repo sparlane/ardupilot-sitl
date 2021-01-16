@@ -11,6 +11,6 @@ then
 	EXTRA_ARGS="--home $LAT,$LON,$ALT,0"
 fi
 
-cat /ardupilot/Tools/autotest/default_params/plane.parm
+cat /ardupilot/Tools/autotest/default_params/sub.parm
 
-/ardupilot/build/sitl/bin/arduplane -S -I0 --model plane --speedup 1 --defaults /ardupilot/Tools/autotest/default_params/plane.parm ${EXTRA_ARGS}
+/ardupilot/build/sitl/bin/ardusub -S -I0 --model plane --speedup 1 --defaults /ardupilot/Tools/autotest/default_params/sub.parm ${EXTRA_ARGS}
