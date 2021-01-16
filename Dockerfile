@@ -1,4 +1,4 @@
-FROM sparlane/apm-build-source:sub-latest
+FROM sparlane/apm-build-source:sub-4.0.1
 
 WORKDIR /ardupilot
 
