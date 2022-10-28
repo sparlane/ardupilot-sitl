@@ -17,6 +17,7 @@ fi
 if [ ! -z "$ADSB" ]
 then
     echo "ADSB_ENABLE	1" >> ${DEFAULTS}
+    echo "ADSB_TYPE	1" >> ${DEFAULTS}
 fi
 
 if [ ! -z "$AVOIDANCE" ]
