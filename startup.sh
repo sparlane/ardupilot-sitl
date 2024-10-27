@@ -1,6 +1,35 @@
 #!/bin/bash
 
-DEFAULTS=/ardupilot/Tools/autotest/default_params/plane.parm
+TYPE=${1,,}
+
+case $TYPE in
+	copter)
+		PARAMS=copter
+		BIN=arducopter
+		MODEL=+
+		;;
+	plane)
+		PARAMS=plane
+		BIN=arduplane
+		MODEL=plane
+		;;
+	rover)
+		PARAMS=rover
+		BIN=ardurover
+		MODEL=rover
+		;;
+	sub)
+		PARAMS=sub
+		BIN=ardusub
+		MODEL=vectored
+		;;
+	*)
+		echo "Unsupported type: $TYPE"
+		exit -1
+		;;
+esac
+
+DEFAULTS=/ardupilot/Tools/autotest/default_params/$PARAMS.parm
 
 EXTRA_ARGS=
 
@@ -39,4 +68,4 @@ fi
 
 cat $DEFAULTS
 
-/ardupilot/build/sitl/bin/arduplane -S -I0 --model plane --speedup 1 --defaults ${DEFAULTS} ${EXTRA_ARGS}
+/ardupilot/build/sitl/bin/$BIN -S -I0 --model $MODEL --speedup 1 --defaults ${DEFAULTS} ${EXTRA_ARGS}
