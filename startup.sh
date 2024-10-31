@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TYPE=${1,,}
+TYPE=${VEHICLE_TYPE,,}
 
 case $TYPE in
 	copter)
@@ -29,7 +29,11 @@ case $TYPE in
 		;;
 esac
 
-DEFAULTS=/ardupilot/Tools/autotest/default_params/$PARAMS.parm
+DEFAULTS=/ardupilot/Tools/autotest/models/$PARAMS.parm
+if [ ! -f "${DEFAULTS}" ]
+then
+	DEFAULTS=/ardupilot/Tools/autotest/default_parms/$PARAMS.parm
+fi
 
 EXTRA_ARGS=
 

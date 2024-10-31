@@ -16,7 +16,9 @@ COPY build.sh .
 RUN ./build.sh ${VEHICLE_TYPE}
 
 WORKDIR /ardupilot/Ardu${VEHICLE_TYPE}
-COPY startup.sh .
+COPY startup.sh /
 
-ENTRYPOINT ["/ardupilot/Ardu${VEHICLE_TYPE}/startup.sh"]
+ENV VEHICLE_TYPE=${VEHICLE_TYPE}
+
+ENTRYPOINT ["/startup.sh"]
 #["/ardupilot/Tools/autotest/sim_vehicle.py"]
