@@ -32,7 +32,7 @@ esac
 DEFAULTS=/ardupilot/Tools/autotest/models/$PARAMS.parm
 if [ ! -f "${DEFAULTS}" ]
 then
-	DEFAULTS=/ardupilot/Tools/autotest/default_parms/$PARAMS.parm
+	DEFAULTS=/ardupilot/Tools/autotest/default_params/$PARAMS.parm
 fi
 
 EXTRA_ARGS=
